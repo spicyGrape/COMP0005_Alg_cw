@@ -169,3 +169,16 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# macOS Finder
+.DS_Store
+# macOS Spotlight
+.Spotlight-V100
+# macOS Trash folder which might appear on external disk
+.Trashes
+# Windows thumbnail cache files
+Thumbs.db
+# Windows image file caches
+ehthumbs.db
+# Windows Installer files
+ehthumbs_vista.db
