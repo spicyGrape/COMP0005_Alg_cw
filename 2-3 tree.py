@@ -7,7 +7,10 @@ class Tree23 :
     def __init__(self):
         self.root = None
     def search(self,key):
-        pass
+        if self.root is None:
+            return False
+        else:
+            return self.search_recursively(self.root,key)
     def insert(self,key):
         if self.root is None:
             self.root = Node23(is_leaf=True)
@@ -66,6 +69,16 @@ class Tree23 :
         while idx < len(node.keys) and key > node.keys[idx]:
             idx += 1
         return idx
+    def search_recursively(self,node,key):
+         n = len(node.keys)
+         for idx in range(n):
+            if node.keys[idx] == key:
+                return True
+         if node.is_leaf :
+            return False
+         else:
+            children_index = self.find_children_index(node, key)
+            return self.search_recursively(node.children[children_index],key)
     def print_tree(self,node, level=0):
         if node is None:
             return
@@ -78,4 +91,6 @@ if __name__ == '__main__':
     keys = [7, 3, 10, 1, 5, 8, 2, 4, 6, 9]
     for k in keys:
         tree.insert(k)
-    tree.print_tree(tree.root)
+    tree.print_tree(tree.root,0)
+    a = tree.search(8)
+    print(a)
