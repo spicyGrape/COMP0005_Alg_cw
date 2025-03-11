@@ -115,12 +115,12 @@ class TreeAVL:
         node = self.root
         while node:
             if node.key == key:
-                return node
+                return True
             elif key < node.key:
                 node = node.left
             else:
                 node = node.right
-        return None
+        return False
 
     def print_tree(self,node, level=0):
         if node is None:
